@@ -17,8 +17,15 @@ public class Player : MonoBehaviour
     }
     void Move()
     {
-        moveDirection.x = Input.GetAxisRaw("Horizontal");
-        moveDirection.y = Input.GetAxisRaw("Vertical");
-        rb.MovePosition(moveDirection * Time.fixedDeltaTime);
+        if (Input.GetAxisRaw("Horizontal") != 0)
+            moveDirection.x = Input.GetAxisRaw("Horizontal");
+        else
+            moveDirection.x = 0;
+
+        if (Input.GetAxisRaw("Vertical") != 0)
+            moveDirection.y = Input.GetAxisRaw("Vertical");
+        else
+            moveDirection.y = 0;
+        rb.AddForce(moveDirection * speed);
     }
 }
