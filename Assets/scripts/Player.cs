@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float Speed;
     private Interactable interactableObject;
+    private SpriteRenderer sr;
     public Animator anim;
     
     void Start()
@@ -27,16 +26,31 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
+        //движение
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
         float moveVertical = Input.GetAxisRaw("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
 
+        transform.Translate(movement * Speed * Time.fixedDeltaTime);
+
+        //Flip 
+        if (moveHorizontal == -1)
+        {
+            transform.localScale = new Vector3(-6.683525f, transform.localScale.y, transform.localScale.z);
+            HandsDirection.Fliped = true;
+        }
+
+        if (moveHorizontal == 1)
+        {
+            transform.localScale = new Vector3(6.683525f, transform.localScale.y, transform.localScale.z);
+            HandsDirection.Fliped = false;
+        }
+
+        //Анимация
         anim.SetFloat("horizontalmove", Mathf.Abs(moveHorizontal));
         anim.SetFloat("verticalmove", Mathf.Abs(moveVertical));
-
-        transform.Translate(movement * Speed * Time.fixedDeltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
