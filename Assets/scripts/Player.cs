@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float Speed;
     private Interactable interactableObject;
+    public Animator anim;
+    
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     private void Update()
     {
         if (interactableObject != null && Input.GetKeyDown(KeyCode.E))
@@ -26,6 +32,9 @@ public class Player : MonoBehaviour
         float moveVertical = Input.GetAxisRaw("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
+
+        anim.SetFloat("horizontalmove", Mathf.Abs(moveHorizontal));
+        anim.SetFloat("verticalmove", Mathf.Abs(moveVertical));
 
         transform.Translate(movement * Speed * Time.fixedDeltaTime);
     }
