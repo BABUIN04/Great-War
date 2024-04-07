@@ -144,7 +144,7 @@ TextureImporter:
       name: hero_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
         width: 12
         height: 29
@@ -165,7 +165,7 @@ TextureImporter:
       name: hero_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 13
         y: 0
         width: 13
         height: 29
@@ -186,7 +186,7 @@ TextureImporter:
       name: hero_2
       rect:
         serializedVersion: 2
-        x: 31
+        x: 26
         y: 0
         width: 12
         height: 29
