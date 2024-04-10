@@ -4,7 +4,7 @@ using UnityEngine;
 public class HandsDirection : MonoBehaviour
 {
     private Vector2 mousePosition;
-    private float angle;
+    public static float angle;
     static public bool Fliped;
 
     private void Update()
@@ -16,6 +16,7 @@ public class HandsDirection : MonoBehaviour
         if (Fliped)
         {
             transform.localScale = new Vector3(-Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
             if (angle < 90 ^ angle > -90)
                 GetComponent<SpriteRenderer>().flipY = true;
             else

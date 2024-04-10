@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float Speed;
     private Interactable interactableObject;
-    private SpriteRenderer sr;
+    public GameObject bullet;
     public Animator anim;
-    [SerializeField] private GameObject actualGun;
-    
+    private Transform actualGun;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -19,6 +18,12 @@ public class Player : MonoBehaviour
         {
             interactableObject.Interact();
             Debug.Log("interact");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            actualGun = transform.GetChild(0).GetChild(0);
+            shoot(HandsDirection.angle, actualGun.position);
         }
     }
     private void FixedUpdate()
@@ -52,6 +57,10 @@ public class Player : MonoBehaviour
         //Анимация
         anim.SetFloat("horizontalmove", Mathf.Abs(moveHorizontal));
         anim.SetFloat("verticalmove", Mathf.Abs(moveVertical));
+    }
+    public void shoot(float direction, Vector3 position)
+    {
+        Instantiate(bullet, position, Quaternion.Euler(0, 0, direction));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
