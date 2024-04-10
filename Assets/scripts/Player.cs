@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private Interactable interactableObject;
     private SpriteRenderer sr;
     public Animator anim;
+    [SerializeField] private GameObject actualGun;
     
     void Start()
     {
