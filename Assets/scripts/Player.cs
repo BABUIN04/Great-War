@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public Animator anim;
     private Transform actualGun;
+    public Shoot Shoot;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             actualGun = transform.GetChild(0).GetChild(0);
-            shoot(HandsDirection.angle, actualGun.position);
+            Shoot.shoot(HandsDirection.angle, actualGun.position);
         }
     }
     private void FixedUpdate()
@@ -57,10 +58,6 @@ public class Player : MonoBehaviour
         //Анимация
         anim.SetFloat("horizontalmove", Mathf.Abs(moveHorizontal));
         anim.SetFloat("verticalmove", Mathf.Abs(moveVertical));
-    }
-    public void shoot(float direction, Vector3 position)
-    {
-        Instantiate(bullet, position, Quaternion.Euler(0, 0, direction));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

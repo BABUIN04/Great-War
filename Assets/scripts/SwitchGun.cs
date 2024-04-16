@@ -13,7 +13,7 @@ public class SwitchGun : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
         {
             ActualGun.transform.SetParent(GunsFolder);
-            ActualGun.active = false;
+            ActualGun.SetActive(false);
 
             if(i == Guns.Length)
             {
@@ -22,7 +22,7 @@ public class SwitchGun : MonoBehaviour
 
             ActualGun = Guns[i];
             ActualGun.transform.SetParent(Hands);
-            ActualGun.active = true;
+            ActualGun.SetActive(true);
             ActualGun.transform.position = Hands.transform.position;
 
             i++;

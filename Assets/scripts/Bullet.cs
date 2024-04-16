@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
-    private Collider collider;
+    [SerializeField] int damage;
 
     private void FixedUpdate()
     {
@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        transform.Translate(1.2f, 0, 0);
         Invoke("Delete", lifeTime);
     }
 
@@ -24,6 +23,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        IDamagable Idamagable = collision.gameObject.GetComponent<IDamagable>();
+        if (Idamagable != null)
+            Idamagable.OnDamage(damage);
         Delete();
     }
 }
