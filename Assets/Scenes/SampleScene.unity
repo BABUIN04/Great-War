@@ -3098,6 +3098,7 @@ GameObject:
   - component: {fileID: 872473018}
   - component: {fileID: 872473019}
   - component: {fileID: 872473020}
+  - component: {fileID: 872473021}
   m_Layer: 0
   m_Name: first gun
   m_TagString: Untagged
@@ -3116,8 +3117,7 @@ Transform:
   m_LocalPosition: {x: 10.36, y: 1.026, z: 0.0031499993}
   m_LocalScale: {x: 4.03716, y: 4.03716, z: 4.03716}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1698198655}
+  m_Children: []
   m_Father: {fileID: 1241153273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3185,6 +3185,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b197d63df97a0d44890f48e3ce3bf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &872473021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872473017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185c280dde0900042a32d545907929e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HorizontalCor: 0.9
+  VerticalCor: 0.1
+  bulletPrefab: {fileID: 4607978252335226862, guid: 4721d872bb006da4b9f7bfc0c2081eb9, type: 3}
 --- !u!1 &1170056195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,118 +3275,118 @@ MonoBehaviour:
   - position: {x: -16.574553, y: 7.695956, z: 0}
     color: {r: 0, g: 0, b: 0, a: 1}
     uv: {x: 0, y: 0}
-  - position: {x: -17.3032, y: -6.1917, z: 0}
+  - position: {x: -17.3146, y: -6.1907, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.2953, y: -6.2893, z: 0}
+  - position: {x: -17.3068, y: -6.2882, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.2686, y: -6.3834, z: 0}
+  - position: {x: -17.2801, y: -6.3824, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.224, y: -6.4705, z: 0}
+  - position: {x: -17.2355, y: -6.4695, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.1633, y: -6.5473, z: 0}
+  - position: {x: -17.1749, y: -6.5463, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.0888, y: -6.6108, z: 0}
+  - position: {x: -17.1004, y: -6.6098, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.0034, y: -6.6585, z: 0}
+  - position: {x: -17.015, y: -6.6576, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.9103, y: -6.6887, z: 0}
+  - position: {x: -16.922, y: -6.6879, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.8006, y: -6.7003, z: 0}
+  - position: {x: -16.8118, y: -6.6995, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.3143, y: -6.5533, z: 0}
+  - position: {x: 10.3129, y: -6.5418, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.4116, y: -6.5432, z: 0}
+  - position: {x: 10.4102, y: -6.5316, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.5052, y: -6.5143, z: 0}
+  - position: {x: 10.5037, y: -6.5027, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.5912, y: -6.4678, z: 0}
+  - position: {x: 10.5898, y: -6.4562, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.6666, y: -6.4054, z: 0}
+  - position: {x: 10.6652, y: -6.3937, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.7284, y: -6.3295, z: 0}
+  - position: {x: 10.7269, y: -6.3178, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.7742, y: -6.243, z: 0}
+  - position: {x: 10.7727, y: -6.2313, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.8023, y: -6.1493, z: 0}
+  - position: {x: 10.8007, y: -6.1376, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.8116, y: -6.0516, z: 0}
+  - position: {x: 10.81, y: -6.0402, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.7636, y: 7.7282, z: 0}
+  - position: {x: 10.7656, y: 7.735, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.7537, y: 7.8256, z: 0}
+  - position: {x: 10.7557, y: 7.8324, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.725, y: 7.9192, z: 0}
+  - position: {x: 10.727, y: 7.9259, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.6786, y: 8.0053, z: 0}
+  - position: {x: 10.6807, y: 8.0121, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.6164, y: 8.0808, z: 0}
+  - position: {x: 10.6185, y: 8.0877, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.5406, y: 8.1428, z: 0}
+  - position: {x: 10.5427, y: 8.1496, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.4542, y: 8.1887, z: 0}
+  - position: {x: 10.4563, y: 8.1956, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.3605, y: 8.217, z: 0}
+  - position: {x: 10.3626, y: 8.2239, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: 10.2629, y: 8.2265, z: 0}
+  - position: {x: 10.265, y: 8.2334, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.5658, y: 8.1905, z: 0}
+  - position: {x: -16.5696, y: 8.2, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.6632, y: 8.1808, z: 0}
+  - position: {x: -16.667, y: 8.1903, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.7568, y: 8.1523, z: 0}
+  - position: {x: -16.7606, y: 8.1618, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.8431, y: 8.1061, z: 0}
+  - position: {x: -16.8469, y: 8.1156, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.9187, y: 8.044, z: 0}
+  - position: {x: -16.9226, y: 8.0536, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -16.9808, y: 7.9684, z: 0}
+  - position: {x: -16.9846, y: 7.9779, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.0269, y: 7.8821, z: 0}
+  - position: {x: -17.0308, y: 7.8916, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.0554, y: 7.7885, z: 0}
+  - position: {x: -17.0593, y: 7.798, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  - position: {x: -17.065, y: 7.6991, z: 0}
+  - position: {x: -17.0689, y: 7.7088, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
   m_Triangles: 000003000100010003000200040008000800040008000900040009000a0004000a000b0004000b000c0004000c000d0004000d000e0004000e000f0004000f001000040005001100040010001100050011001200050012001300050013001400050014001500050015001600050016001700050017001800050018001900050006001a00050019001a0006001a001b0006001b001c0006001c001d0006001d001e0006001e001f0006001f002000060020002100060021002200060007002300060022002300070023002400070024002500070025002600070026002700070027002800070028002900070029002a0007002a002b0008000400070008002b000700
   m_LocalBounds:
-    m_Center: {x: -3.2458, y: 0.7630997, z: 0}
-    m_Extent: {x: 14.0574, y: 7.4634, z: 0}
+    m_Center: {x: -3.2522998, y: 0.76695013, z: 0}
+    m_Extent: {x: 14.0623, y: 7.46645, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3637,6 +3652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 872473018}
+  - {fileID: 1698198655}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3651,6 +3667,7 @@ GameObject:
   - component: {fileID: 1698198655}
   - component: {fileID: 1698198656}
   - component: {fileID: 1698198657}
+  - component: {fileID: 1698198658}
   m_Layer: 0
   m_Name: Mouzer
   m_TagString: Untagged
@@ -3666,12 +3683,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698198654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.028410904, y: -0.17135812, z: 0}
-  m_LocalScale: {x: 0.8271683, y: 0.8271683, z: 0.8271683}
+  m_LocalPosition: {x: 10.2453, y: 0.3341999, z: 0.0031499993}
+  m_LocalScale: {x: 3.3394105, y: 3.3394105, z: 3.3394105}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 872473018}
-  m_RootOrder: 0
+  m_Father: {fileID: 1241153273}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1698198656
 SpriteRenderer:
@@ -3737,6 +3754,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b197d63df97a0d44890f48e3ce3bf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1698198658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698198654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185c280dde0900042a32d545907929e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HorizontalCor: 0
+  VerticalCor: 0
+  bulletPrefab: {fileID: 4607978252335226862, guid: 4721d872bb006da4b9f7bfc0c2081eb9, type: 3}
 --- !u!1 &1773349354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,7 +3784,6 @@ GameObject:
   - component: {fileID: 1773349355}
   - component: {fileID: 1773349360}
   - component: {fileID: 1773349361}
-  - component: {fileID: 1773349362}
   m_Layer: 0
   m_Name: hero_0
   m_TagString: Player
@@ -3801,7 +3832,6 @@ MonoBehaviour:
   Speed: 3
   bullet: {fileID: 4607978252335226862, guid: 4721d872bb006da4b9f7bfc0c2081eb9, type: 3}
   anim: {fileID: 1773349360}
-  Shoot: {fileID: 1773349362}
 --- !u!50 &1773349357
 Rigidbody2D:
   serializedVersion: 4
@@ -3931,19 +3961,6 @@ MonoBehaviour:
   ActualGun: {fileID: 115611133}
   Hands: {fileID: 2023770408}
   GunsFolder: {fileID: 1241153273}
---- !u!114 &1773349362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773349354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 185c280dde0900042a32d545907929e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4607978252335226862, guid: 4721d872bb006da4b9f7bfc0c2081eb9, type: 3}
 --- !u!1 &2009838851
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,7 +4110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023770407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0177, y: -0.0447, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.0447, z: 0}
   m_LocalScale: {x: 0.14962164, y: 0.14962164, z: 0.14962164}
   m_ConstrainProportionsScale: 0
   m_Children:

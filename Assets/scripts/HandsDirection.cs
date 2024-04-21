@@ -6,6 +6,7 @@ public class HandsDirection : MonoBehaviour
     private Vector2 mousePosition;
     public static float angle;
     static public bool Fliped;
+    static public bool GunFlipped;
 
     private void Update()
     {
@@ -18,18 +19,30 @@ public class HandsDirection : MonoBehaviour
             transform.localScale = new Vector3(-Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
             if (angle < 90 ^ angle > -90)
-                GetComponent<SpriteRenderer>().flipY = true;
+            {
+                transform.localScale = new Vector3(transform.localScale.x, -Math.Abs(transform.localScale.y), 0);
+                GunFlipped = true;
+            }
             else
-                GetComponent<SpriteRenderer>().flipY = false;
+            {
+                transform.localScale = new Vector3(transform.localScale.x, Math.Abs(transform.localScale.y), 0);
+                GunFlipped = false;
+            }
         }
         else
         {
             transform.localScale = new Vector3(Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
             if (angle > 90 ^ angle < -90)
-                GetComponent<SpriteRenderer>().flipY = true;
+            {
+                transform.localScale = new Vector3(transform.localScale.x, -Math.Abs(transform.localScale.y), 0);
+                GunFlipped = false;
+            }
             else
-                GetComponent<SpriteRenderer>().flipY = false;
+            {
+                transform.localScale = new Vector3(transform.localScale.x, Math.Abs(transform.localScale.y), 0);
+                GunFlipped = true;
+            }
         }
 
 

@@ -6,8 +6,7 @@ public class Player : MonoBehaviour
     private Interactable interactableObject;
     public GameObject bullet;
     public Animator anim;
-    private Transform actualGun;
-    public Shoot Shoot;
+    public static Shoot _shoot;
 
     void Start()
     {
@@ -21,10 +20,9 @@ public class Player : MonoBehaviour
             Debug.Log("interact");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _shoot != null)
         {
-            actualGun = transform.GetChild(0).GetChild(0);
-            Shoot.shoot(HandsDirection.angle, actualGun.position);
+            _shoot.shoot(HandsDirection.angle);
         }
     }
     private void FixedUpdate()

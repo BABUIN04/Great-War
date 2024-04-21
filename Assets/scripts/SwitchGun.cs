@@ -24,6 +24,7 @@ public class SwitchGun : MonoBehaviour
             ActualGun.transform.SetParent(Hands);
             ActualGun.SetActive(true);
             ActualGun.transform.position = Hands.transform.position;
+            Player._shoot = ActualGun.GetComponent<Shoot>();
 
             i++;
         }

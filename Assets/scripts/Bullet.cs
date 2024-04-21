@@ -6,15 +6,15 @@ public class Bullet : MonoBehaviour
     [SerializeField] float lifeTime;
     [SerializeField] int damage;
 
+    private void Start()
+    {
+        Invoke("Delete", lifeTime);
+    }
     private void FixedUpdate()
     {
         transform.Translate(speed, 0, 0);
     }
 
-    private void Start()
-    {
-        Invoke("Delete", lifeTime);
-    }
 
     void Delete()
     {
