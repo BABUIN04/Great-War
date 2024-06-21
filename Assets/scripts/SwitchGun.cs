@@ -3,30 +3,28 @@ using UnityEngine;
 public class SwitchGun : MonoBehaviour
 {
     public GameObject[] Guns = new GameObject[3];
-    public GameObject ActualGun;
+
     [SerializeField] private Transform Hands;
     [SerializeField] private Transform GunsFolder;
+
     private int i = 0;
 
-    private void Update()
+    public GameObject SwitchingGun(GameObject ActualGun)
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            ActualGun.transform.SetParent(GunsFolder);
-            ActualGun.SetActive(false);
+        ActualGun.transform.parent = GunsFolder;
+        ActualGun.SetActive(false);
 
-            if(i == Guns.Length)
-            {
-                i = 0;
-            }
+        ActualGun = Guns[i];
+        ActualGun.transform.SetParent(Hands);
+        ActualGun.transform.position = Hands.transform.position;
 
-            ActualGun = Guns[i];
-            ActualGun.transform.SetParent(Hands);
-            ActualGun.SetActive(true);
-            ActualGun.transform.position = Hands.transform.position;
-            Player._shoot = ActualGun.GetComponent<Shoot>();
+        ActualGun.SetActive(true);
 
+        if (i == Guns.Length - 1)
+            i = 0;
+        else
             i++;
-        }
+
+        return ActualGun;
     }
 }

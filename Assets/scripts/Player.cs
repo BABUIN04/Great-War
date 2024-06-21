@@ -2,11 +2,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float Speed;
+    public SwitchGun SwitchGun;
+    //Система дропа оружия очень напоминает его смену
+    //за исключением того что при смене оружие становится неактивным, а при дропе неактивным должен становиться только скрипт стрельбы
+    //Мб сделать дроп оружия дочерним классом, либо можно использовать виртуальные класс, на мой взгляд лучше использовать их
+
     private Interactable interactableObject;
+
+    public GameObject ActualGun;
     public GameObject bullet;
+    public Shoot _shoot;
+
+    [SerializeField] private float Speed;
+    private float moveHorizontal;
+    private float moveVertical;
+
     public Animator anim;
-    public static Shoot _shoot;
 
     void Start()
     {
@@ -14,33 +25,49 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        if (interactableObject != null && Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
+            Interaction();
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            interactableObject.Interact();
-            Debug.Log("interact");
+            Switching();
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _shoot != null)
+        if(Input.GetKeyDown(KeyCode.Mouse0) && ActualGun.GetComponent<Shoot>() != null)
         {
-            _shoot.shoot(HandsDirection.angle);
+            _shoot.shoot();
         }
     }
     private void FixedUpdate()
     {
-        Move();
+        MoveManager();
     }
+    private void MoveManager()
+    {
+        Move();
+
+        Flip();
+
+        Anim();
+    }
+
     private void Move()
     {
-        //движение
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
 
-        float moveVertical = Input.GetAxisRaw("Vertical");
+        moveVertical = Input.GetAxisRaw("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
 
         transform.Translate(movement * Speed * Time.fixedDeltaTime);
-
-        //Flip 
+    }
+    private void Anim()
+    {
+        anim.SetFloat("horizontalmove", Mathf.Abs(moveHorizontal));
+        anim.SetFloat("verticalmove", Mathf.Abs(moveVertical));
+    }
+    private void Flip()
+    {
         if (moveHorizontal == -1)
         {
             transform.localScale = new Vector3(-6.683525f, transform.localScale.y, transform.localScale.z);
@@ -52,10 +79,21 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(6.683525f, transform.localScale.y, transform.localScale.z);
             HandsDirection.Fliped = false;
         }
+    }
+    private void Interaction()
+    {
+        if (interactableObject != null)
+        {
+            interactableObject.Interact();
+            Debug.Log("interact");
+        }
+    }
 
-        //Анимация
-        anim.SetFloat("horizontalmove", Mathf.Abs(moveHorizontal));
-        anim.SetFloat("verticalmove", Mathf.Abs(moveVertical));
+    private void Switching()
+    {
+        ActualGun = SwitchGun.SwitchingGun(ActualGun);
+
+        _shoot = ActualGun.GetComponent<Shoot>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
