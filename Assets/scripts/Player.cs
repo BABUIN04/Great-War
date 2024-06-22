@@ -3,9 +3,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public SwitchGun SwitchGun;
-    //Система дропа оружия очень напоминает его смену
-    //за исключением того что при смене оружие становится неактивным, а при дропе неактивным должен становиться только скрипт стрельбы
-    //Мб сделать дроп оружия дочерним классом, либо можно использовать виртуальные класс, на мой взгляд лучше использовать их
 
     private Interactable interactableObject;
 
@@ -29,14 +26,13 @@ public class Player : MonoBehaviour
             Interaction();
 
         if (Input.GetKeyDown(KeyCode.Q))
-        {
             Switching();
-        }
 
         if(Input.GetKeyDown(KeyCode.Mouse0) && ActualGun.GetComponent<Shoot>() != null)
-        {
             _shoot.shoot();
-        }
+
+        if (Input.GetKeyDown(KeyCode.G) && ActualGun.tag != "hands")
+            DropGun.Drop(ActualGun);
     }
     private void FixedUpdate()
     {
@@ -85,26 +81,29 @@ public class Player : MonoBehaviour
         if (interactableObject != null)
         {
             interactableObject.Interact();
-            Debug.Log("interact");
         }
     }
 
-    private void Switching()
+    public void Switching()
     {
         ActualGun = SwitchGun.SwitchingGun(ActualGun);
 
         _shoot = ActualGun.GetComponent<Shoot>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "interactable")
+        if (collision.gameObject.tag == "interactable")
         {
             interactableObject = collision.gameObject.GetComponent<Interactable>();
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "interactable")
+        {
+            interactableObject = null;
+        }
         if (collision.gameObject.tag == "interactable")
         {
             interactableObject = null;

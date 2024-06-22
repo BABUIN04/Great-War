@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchGun : MonoBehaviour
 {
-    public GameObject[] Guns = new GameObject[3];
+    public List<GameObject> Guns = new List<GameObject>();
 
     [SerializeField] private Transform Hands;
     [SerializeField] private Transform GunsFolder;
@@ -11,6 +12,9 @@ public class SwitchGun : MonoBehaviour
 
     public GameObject SwitchingGun(GameObject ActualGun)
     {
+        if (Guns.Count == 1)
+            return ActualGun;
+
         ActualGun.transform.parent = GunsFolder;
         ActualGun.SetActive(false);
 
@@ -20,7 +24,7 @@ public class SwitchGun : MonoBehaviour
 
         ActualGun.SetActive(true);
 
-        if (i == Guns.Length - 1)
+        if (i == Guns.Count - 1)
             i = 0;
         else
             i++;
